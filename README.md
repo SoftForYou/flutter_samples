@@ -238,14 +238,27 @@ flutter test -d ios         # iOS Simulator
 
 ## 📸 Screenshots
 
-### Banking App
+> **📷 Screenshots Coming Soon**: We're preparing screenshots of both example applications to showcase the Obsly Flutter library integration in action.
 
-<img src="screenshots/banking_app_home.png" width="300" alt="Banking App Home">
-<img src="screenshots/banking_app_debug.png" width="300" alt="Banking App Debug Tools">
+### Banking App Features Preview
+- 🏠 **Dashboard Screen**: Complete banking interface with Obsly monitoring
+- 🔧 **Debug Tools**: Real-time event viewer and SDK configuration interface
+- 💳 **Transaction Flow**: End-to-end transaction monitoring with analytics
+- 📊 **Performance Metrics**: Live performance data and monitoring tools
 
-### Demo App
+### Demo App Features Preview  
+- 🛍️ **Product Catalog**: E-commerce interface with automatic event tracking
+- 🛒 **Shopping Cart**: Complete shopping flow with Obsly integration
+- 📱 **Navigation Tracking**: Automatic screen transition monitoring
+- 🎯 **User Interactions**: Button clicks and gesture tracking demonstrations
 
-<img src="screenshots/demo_app_main.png" width="300" alt="Demo App Main Screen">
+**Screenshots to be added:**
+- `screenshots/banking_app_home.png` - Banking app main dashboard
+- `screenshots/banking_app_debug.png` - Debug tools interface
+- `screenshots/banking_app_transactions.png` - Transaction flow
+- `screenshots/demo_app_main.png` - Demo app home screen
+- `screenshots/demo_app_cart.png` - Shopping cart interface
+- `screenshots/demo_app_debug.png` - Event tracking in action
 
 ## 🤝 Contributing
 
