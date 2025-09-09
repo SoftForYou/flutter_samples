@@ -1,19 +1,21 @@
-# Ejemplos de Uso - Obsly Flutter SDK
+# Obsly Flutter Library - Usage Examples
 
-## Índice
+This document provides comprehensive examples of how to use the Obsly Flutter library for different types of applications and use cases, focusing on event interception, rules engine, and analytics capabilities.
 
-- [Ejemplos Básicos](#ejemplos-básicos)
-- [Aplicaciones Bancarias](#aplicaciones-bancarias)
+## Table of Contents
+
+- [Basic Examples](#basic-examples)
+- [Banking Applications](#banking-applications)
 - [E-commerce](#e-commerce)
-- [Apps de Salud](#apps-de-salud)
-- [Apps de Productividad](#apps-de-productividad)
+- [Health Apps](#health-apps)
+- [Productivity Apps](#productivity-apps)
 - [Gaming](#gaming)
-- [Streaming y Media](#streaming-y-media)
-- [Patrones Avanzados](#patrones-avanzados)
+- [Streaming & Media](#streaming--media)
+- [Advanced Patterns](#advanced-patterns)
 
-## Ejemplos Básicos
+## Basic Examples
 
-### Configuración Mínima
+### Minimal Configuration
 
 ```dart
 import 'package:flutter/material.dart';
@@ -24,7 +26,7 @@ void main() {
     runApp(
       ObslySDK.wrapApp(
         app: const MyApp(),
-        obslyKey: 'tu-api-key',
+        obslyKey: 'your-api-key', // Contact help@obsly.io for your key
         instanceURL: 'https://api.obsly.io',
       ),
     );
@@ -37,29 +39,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mi App',
+      title: 'My App',
       home: const HomeScreen(),
     );
   }
 }
 ```
 
-### Configuración con Manejo de Errores
+### Configuration with Error Handling
 
 ```dart
 void main() {
-  // Configuración estándar con protección completa
+  // Standard configuration with complete protection
   ObslySDK.run(() {
     runApp(
       ObslySDK.wrapApp(
         app: const MyApp(),
-        obslyKey: 'tu-api-key',
+        obslyKey: 'your-api-key', // Contact help@obsly.io for your key
         instanceURL: 'https://api.obsly.io',
         debugMode: true,
         logLevel: LogLevel.debug,
         enableDebugTools: true,
         config: const ObslyConfig(
-          enableAutomaticCapture: true,
+          enableUI: true,
+          enableRequestLog: true,
+          enableCrashes: true,
+          enableLifeCycleLog: true,
           enableDebugTools: true,
           enableScreenshotOnUi: true,
         ),
@@ -68,37 +73,39 @@ void main() {
   });
 }
 
-// Para casos que requieren control manual
+// For cases requiring manual control
 void mainAdvanced() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   ObslySDK.run(() async {
     try {
       await ObslySDK.instance.init(InitParameters(
-        obslyKey: 'tu-api-key',
+        obslyKey: 'your-api-key', // Contact help@obsly.io for your key
         instanceURL: 'https://api.obsly.io',
-        appName: 'Mi App Flutter',
+        appName: 'My Flutter App',
         appVersion: '1.0.0',
         config: const ObslyConfig(
-          enableAutomaticCapture: true,
+          enableUI: true,
+          enableRequestLog: true,
+          enableCrashes: true,
           enableDebugTools: false,
         ),
       ));
 
-      print('✅ Obsly SDK inicializado');
+      print('✅ Obsly library initialized');
       runApp(const MyApp());
     } catch (e) {
-      print('❌ Error inicializando Obsly: $e');
-      // La app continúa sin Obsly
+      print('❌ Error initializing Obsly: $e');
+      // App continues without Obsly
       runApp(const MyApp());
     }
   });
 }
 ```
 
-## Aplicaciones Bancarias
+## Banking Applications
 
-### Sistema de Login Bancario
+### Banking Login System with Event Interception
 
 ```dart
 class BankingLoginService {
@@ -903,4 +910,20 @@ await BusinessMetrics.trackConversionFunnel(
 );
 ```
 
-Estos ejemplos muestran cómo integrar Obsly Flutter SDK en diferentes tipos de aplicaciones y casos de uso, proporcionando visibilidad completa del comportamiento de la aplicación y la experiencia del usuario.
+These examples demonstrate how to integrate the Obsly Flutter library into different types of applications and use cases, providing complete visibility into application behavior, user experience, and comprehensive event interception capabilities.
+
+## Key Takeaways
+
+- **Event Interception**: Automatic capture of UI, lifecycle, navigation, console, crash, and HTTP events
+- **Rules Engine**: Dynamic event processing and filtering capabilities
+- **Performance Monitoring**: Real-time performance tracking and analytics
+- **Business Intelligence**: Custom metrics and business-specific event tracking
+- **Error Handling**: Comprehensive crash detection and error reporting
+- **Debug Tools**: Development and troubleshooting capabilities
+
+## Support
+
+For more examples and help:
+
+- 📧 Email: [help@obsly.io](mailto:help@obsly.io)
+- 📖 Documentation: [Complete docs](./)

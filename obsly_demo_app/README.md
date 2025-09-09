@@ -228,7 +228,7 @@ After exploring this demo:
 ### Related Examples
 
 - [`../banking_app/`](../banking_app/) - Advanced, production-ready example
-- [SDK Documentation](https://docs.obsly.com/flutter)
+- [SDK Documentation](../doc/)
 - [API Reference](https://pub.dev/documentation/obsly_flutter/latest/)
 
 ## 💡 Tips for Your Integration
@@ -251,8 +251,8 @@ Even in simple apps, consider what data you're tracking and implement appropriat
 
 ## 📞 Support
 
-- 📖 [Documentation](https://docs.obsly.com/flutter)
-- 🐛 [Report Issues](https://github.com/your-username/obsly_flutter/issues)
+- 📖 [Documentation](../doc/)
+- 🐛 [Report Issues](https://github.com/SoftForYou/flutter_samples/issues)
 - 💬 [Community Discord](https://discord.gg/obsly)
 - 📧 [Email Support](mailto:support@obsly.com)
 

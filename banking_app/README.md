@@ -232,7 +232,7 @@ flutter test --coverage
 
 ## 🔗 Related Resources
 
-- [Obsly Flutter SDK Documentation](https://docs.obsly.com/flutter)
+- [Obsly Flutter SDK Documentation](../doc/)
 - [Banking App Architecture Guide](docs/architecture.md)
 - [Security Best Practices](docs/security.md)
 - [Performance Optimization](docs/performance.md)
@@ -243,7 +243,7 @@ If you encounter issues with this example:
 
 1. Check the [troubleshooting guide](docs/troubleshooting.md)
 2. Review the [FAQ](docs/faq.md)
-3. Open an issue in the [main repository](https://github.com/your-username/obsly_flutter/issues)
+3. Open an issue in the [main repository](https://github.com/SoftForYou/flutter_samples/issues)
 
 ---
 

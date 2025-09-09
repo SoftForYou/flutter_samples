@@ -1,11 +1,11 @@
-# Advanced Features - Obsly Flutter SDK
+# Advanced Features - Obsly Flutter Library
 
 ## Table of Contents
 
-- [Remote Configuration System](#remote-configuration-system)
-- [Advanced Rate Limiting](#advanced-rate-limiting)
-- [Selective Request Capture](#selective-request-capture)
 - [Rules Engine System](#rules-engine-system)
+- [Event Interception System](#event-interception-system)
+- [Remote Configuration System](#remote-configuration-system)
+- [Advanced Event Processing](#advanced-event-processing)
 - [Performance Optimization](#performance-optimization)
 - [Advanced Session Management](#advanced-session-management)
 - [Security & Privacy](#security--privacy)
@@ -13,18 +13,569 @@
 - [Screen Timing Measurements](#screen-timing-measurements)
 - [Advanced Testing](#advanced-testing)
 
+## Rules Engine System
+
+The Obsly library includes a powerful rules engine that enables dynamic event processing, filtering, and transformation without requiring app updates.
+
+### Core Concepts
+
+#### Rule Types
+
+1. **Filter Rules**: Include or exclude events based on conditions
+2. **Transform Rules**: Modify event data and add metadata
+3. **Alert Rules**: Generate notifications and alerts
+4. **Routing Rules**: Direct events to different destinations
+
+#### Rule Structure
+
+```dart
+class Rule {
+  final String id;
+  final String name;
+  final String condition;          // JavaScript-like expression
+  final List<RuleAction> actions;  // Actions to execute
+  final bool enabled;
+  final Map<String, dynamic>? metadata;
+}
+```
+
+### Basic Rule Examples
+
+#### Filter Rule - Exclude Test Events
+
+```dart
+final filterTestRule = Rule(
+  id: 'filter_test_events',
+  name: 'Filter Test Environment Events',
+  condition: '''
+    event.metadata && 
+    event.metadata.environment === "test"
+  ''',
+  actions: [
+    ExcludeAction(), // Exclude matching events
+  ],
+  enabled: true,
+);
+
+await ObslySDK.instance.addRule(filterTestRule);
+```
+
+#### Alert Rule - Critical Errors
+
+```dart
+final criticalErrorRule = Rule(
+  id: 'critical_error_alert',
+  name: 'Critical Error Detection',
+  condition: '''
+    event.type === "crash" || 
+    (event.type === "error" && event.severity === "critical")
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'high',
+      message: 'Critical error detected in ${event.screen}',
+      channels: ['email', 'slack'],
+      metadata: {
+        'error_type': '${event.type}',
+        'user_id': '${event.userId}',
+      },
+    ),
+    TransformAction(
+      addMetadata: {
+        'alert_triggered': true,
+        'alert_timestamp': '${now()}',
+      },
+    ),
+  ],
+  enabled: true,
+);
+```
+
+#### Transform Rule - Enrich User Events
+
+```dart
+final enrichUserRule = Rule(
+  id: 'enrich_user_events',
+  name: 'Enrich User Interaction Events',
+  condition: '''
+    event.type === "ui" && 
+    event.userId != null
+  ''',
+  actions: [
+    TransformAction(
+      addMetadata: {
+        'user_segment': '${getUserSegment(event.userId)}',
+        'session_duration_minutes': '${getSessionDuration()}',
+        'is_premium_user': '${isPremiumUser(event.userId)}',
+      },
+    ),
+  ],
+  enabled: true,
+);
+```
+
+### Advanced Rule Patterns
+
+#### Business Logic Rules
+
+```dart
+// E-commerce: Track high-value transactions
+final highValueTransactionRule = Rule(
+  id: 'high_value_transaction',
+  name: 'High Value Transaction Alert',
+  condition: '''
+    event.type === "purchase" && 
+    event.metadata.amount > 1000
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'medium',
+      message: 'High value transaction: $${event.metadata.amount}',
+      channels: ['webhook'],
+    ),
+    TransformAction(
+      addMetadata: {
+        'high_value': true,
+        'requires_review': true,
+      },
+    ),
+  ],
+);
+
+// Banking: Detect suspicious login patterns
+final suspiciousLoginRule = Rule(
+  id: 'suspicious_login_pattern',
+  name: 'Detect Suspicious Login Patterns',
+  condition: '''
+    event.type === "login_attempt" && 
+    (event.metadata.failed_attempts > 3 || 
+     event.metadata.new_device === true)
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'high',
+      message: 'Suspicious login detected for user ${event.userId}',
+      channels: ['security_team'],
+    ),
+    TransformAction(
+      addMetadata: {
+        'security_flag': 'suspicious_login',
+        'review_required': true,
+      },
+    ),
+  ],
+);
+```
+
+#### Performance Monitoring Rules
+
+```dart
+// Detect slow API responses
+final slowApiRule = Rule(
+  id: 'slow_api_response',
+  name: 'Slow API Response Detection',
+  condition: '''
+    event.type === "http" && 
+    event.metadata.duration_ms > 5000
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'medium',
+      message: 'Slow API response: ${event.metadata.url} (${event.metadata.duration_ms}ms)',
+    ),
+    TransformAction(
+      addMetadata: {
+        'performance_issue': 'slow_response',
+        'needs_optimization': true,
+      },
+    ),
+  ],
+);
+
+// Memory usage alerts
+final highMemoryRule = Rule(
+  id: 'high_memory_usage',
+  name: 'High Memory Usage Alert',
+  condition: '''
+    event.type === "performance" && 
+    event.metadata.memory_usage_mb > 500
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'medium',
+      message: 'High memory usage detected: ${event.metadata.memory_usage_mb}MB',
+    ),
+  ],
+);
+```
+
+### Rule Management
+
+#### Dynamic Rule Updates
+
+```dart
+class RulesManager {
+  // Add new rule
+  static Future<void> addRule(Rule rule) async {
+    await ObslySDK.instance.addRule(rule);
+    print('✅ Rule added: ${rule.name}');
+  }
+
+  // Update existing rule
+  static Future<void> updateRule(String ruleId, Rule newRule) async {
+    await ObslySDK.instance.updateRule(ruleId, newRule);
+    print('✅ Rule updated: ${newRule.name}');
+  }
+
+  // Enable/disable rule
+  static Future<void> toggleRule(String ruleId, bool enabled) async {
+    await ObslySDK.instance.setRuleEnabled(ruleId, enabled);
+    print('✅ Rule ${enabled ? "enabled" : "disabled"}: $ruleId');
+  }
+
+  // Remove rule
+  static Future<void> removeRule(String ruleId) async {
+    await ObslySDK.instance.deleteRule(ruleId);
+    print('✅ Rule removed: $ruleId');
+  }
+
+  // Get all rules
+  static Future<List<Rule>> getAllRules() async {
+    return await ObslySDK.instance.getRules();
+  }
+}
+```
+
+#### Conditional Rule Activation
+
+```dart
+class ConditionalRulesService {
+  static Future<void> setupEnvironmentRules() async {
+    final isProduction = const bool.fromEnvironment('dart.vm.product');
+    
+    if (isProduction) {
+      // Production-only rules
+      await _activateProductionRules();
+    } else {
+      // Development-only rules
+      await _activateDevelopmentRules();
+    }
+  }
+
+  static Future<void> _activateProductionRules() async {
+    // Strict error monitoring
+    await RulesManager.addRule(Rule(
+      id: 'prod_error_monitoring',
+      name: 'Production Error Monitoring',
+      condition: 'event.type === "error" || event.type === "crash"',
+      actions: [
+        AlertAction(
+          severity: 'high',
+          channels: ['production_alerts'],
+        ),
+      ],
+    ));
+
+    // Performance monitoring
+    await RulesManager.addRule(Rule(
+      id: 'prod_performance_monitoring',
+      name: 'Production Performance Monitoring',
+      condition: 'event.type === "performance" && event.metadata.duration_ms > 3000',
+      actions: [
+        AlertAction(
+          severity: 'medium',
+          channels: ['performance_team'],
+        ),
+      ],
+    ));
+  }
+
+  static Future<void> _activateDevelopmentRules() async {
+    // Debug information enhancement
+    await RulesManager.addRule(Rule(
+      id: 'dev_debug_enhancement',
+      name: 'Development Debug Enhancement',
+      condition: 'true', // Apply to all events
+      actions: [
+        TransformAction(
+          addMetadata: {
+            'debug_mode': true,
+            'build_number': '${getBuildNumber()}',
+            'developer_id': '${getDeveloperId()}',
+          },
+        ),
+      ],
+    ));
+  }
+}
+```
+
+## Event Interception System
+
+The Obsly library provides comprehensive event interception capabilities across all major event types.
+
+### UI Event Interception
+
+#### Automatic UI Event Capture
+
+The library automatically captures:
+- Button taps and widget interactions
+- Form submissions and input changes
+- Gesture events (swipes, pinch, rotate)
+- Scroll events and list interactions
+
+```dart
+// Configuration for UI event capture
+const uiConfig = ObslyConfig(
+  enableUI: true,
+  enableScreenshotOnUi: true,
+  rageClick: RageClickConfig(
+    active: true,
+    screenshot: true,
+    screenshotPercent: 0.2,
+  ),
+);
+```
+
+#### Custom UI Event Rules
+
+```dart
+// Rule to detect rage clicks
+final rageClickRule = Rule(
+  id: 'rage_click_detection',
+  name: 'Rage Click Pattern Detection',
+  condition: '''
+    event.type === "ui" && 
+    event.metadata.clickCount > 5 && 
+    event.metadata.timeWindow < 2000
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'medium',
+      message: 'User frustration detected (rage clicking)',
+    ),
+    TransformAction(
+      addMetadata: {
+        'user_frustration': true,
+        'ux_issue': 'potential_ui_problem',
+      },
+    ),
+  ],
+);
+
+// Rule to track form abandonment
+final formAbandonmentRule = Rule(
+  id: 'form_abandonment',
+  name: 'Form Abandonment Detection',
+  condition: '''
+    event.type === "navigation" && 
+    event.metadata.formStarted === true && 
+    event.metadata.formCompleted !== true
+  ''',
+  actions: [
+    AlertAction(
+      message: 'Form abandonment detected on ${event.metadata.screen}',
+    ),
+    TransformAction(
+      addMetadata: {
+        'conversion_issue': 'form_abandonment',
+        'completion_rate': '${event.metadata.completionPercentage}',
+      },
+    ),
+  ],
+);
+```
+
+### HTTP Event Interception
+
+#### Automatic Network Monitoring
+
+```dart
+const httpConfig = ObslyConfig(
+  enableRequestLog: true,
+  captureBodyOnError: true,
+  requestBodyWhitelist: [
+    RequestBodyConfig(
+      url: 'https://api.example.com/*',
+      fromStatus: 400,
+      toStatus: 599,
+      captureRequestBody: true,
+      captureResponseBody: true,
+    ),
+  ],
+  requestHeadersWhitelist: [
+    RequestHeadersConfig(
+      url: 'https://api.example.com/*',
+      fromStatus: 200,
+      toStatus: 599,
+      headers: ['content-type', 'x-correlation-id', 'x-request-id'],
+    ),
+  ],
+);
+```
+
+#### HTTP Event Rules
+
+```dart
+// API Error Detection
+final apiErrorRule = Rule(
+  id: 'api_error_detection',
+  name: 'API Error Pattern Detection',
+  condition: '''
+    event.type === "http" && 
+    event.metadata.statusCode >= 500
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'high',
+      message: 'API server error: ${event.metadata.url} (${event.metadata.statusCode})',
+      channels: ['backend_team'],
+    ),
+    TransformAction(
+      addMetadata: {
+        'api_health_issue': true,
+        'service_affected': '${extractServiceName(event.metadata.url)}',
+      },
+    ),
+  ],
+);
+
+// Authentication Failure Detection
+final authFailureRule = Rule(
+  id: 'auth_failure_detection',
+  name: 'Authentication Failure Detection',
+  condition: '''
+    event.type === "http" && 
+    event.metadata.statusCode === 401 && 
+    event.metadata.url.includes("/auth")
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'medium',
+      message: 'Authentication failure detected for user ${event.userId}',
+    ),
+    TransformAction(
+      addMetadata: {
+        'security_event': 'auth_failure',
+        'requires_investigation': true,
+      },
+    ),
+  ],
+);
+```
+
+### Console Event Interception
+
+#### Debug Log Processing
+
+```dart
+const consoleConfig = ObslyConfig(
+  captureConsole: true,
+);
+
+// Rule to detect error patterns in logs
+final errorLogRule = Rule(
+  id: 'error_log_pattern',
+  name: 'Error Pattern in Console Logs',
+  condition: '''
+    event.type === "console" && 
+    (event.message.includes("ERROR") || 
+     event.message.includes("FATAL") ||
+     event.level === "error")
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'medium',
+      message: 'Error detected in console: ${event.message}',
+    ),
+    TransformAction(
+      addMetadata: {
+        'log_level_issue': true,
+        'requires_debugging': true,
+      },
+    ),
+  ],
+);
+```
+
+### Crash Event Interception
+
+#### Automatic Crash Detection
+
+```dart
+const crashConfig = ObslyConfig(
+  enableCrashes: true,
+);
+
+// Critical crash handling rule
+final criticalCrashRule = Rule(
+  id: 'critical_crash_handling',
+  name: 'Critical Application Crash',
+  condition: 'event.type === "crash"',
+  actions: [
+    AlertAction(
+      severity: 'critical',
+      message: 'Application crash detected: ${event.error}',
+      channels: ['emergency_alerts', 'development_team'],
+    ),
+    TransformAction(
+      addMetadata: {
+        'incident_priority': 'P1',
+        'immediate_action_required': true,
+        'crash_context': '${event.metadata}',
+      },
+    ),
+  ],
+);
+```
+
+### Lifecycle Event Interception
+
+#### App State Monitoring
+
+```dart
+const lifecycleConfig = ObslyConfig(
+  enableLifeCycleLog: true,
+);
+
+// Session quality rule
+final sessionQualityRule = Rule(
+  id: 'session_quality_monitoring',
+  name: 'Session Quality Monitoring',
+  condition: '''
+    event.type === "lifecycle" && 
+    event.metadata.state === "background" && 
+    event.metadata.sessionDuration < 30000
+  ''',
+  actions: [
+    AlertAction(
+      severity: 'low',
+      message: 'Short session detected (${event.metadata.sessionDuration}ms)',
+    ),
+    TransformAction(
+      addMetadata: {
+        'session_quality': 'poor',
+        'engagement_issue': true,
+      },
+    ),
+  ],
+);
+```
+
 ## Remote Configuration System
 
 ### Basic Configuration
 
 ```dart
 await ObslySDK.instance.init(InitParameters(
-  obslyKey: 'your-api-key',
-  instanceURL: 'https://api.obsly.com',
-  remoteConfigURL: 'https://config.obsly.com/v1/config',
+  obslyKey: 'your-api-key', // Contact help@obsly.io for your key
+  instanceURL: 'https://api.obsly.io',
+  remoteConfigURL: 'https://config.obsly.io/v1/config',
   // Local configuration as fallback
   config: const ObslyConfig(
-    enableAutomaticCapture: true,
+    enableUI: true,
+    enableRequestLog: true,
+    enableCrashes: true,
     enableDebugTools: false,
   ),
 ));
@@ -1131,4 +1682,20 @@ class PerformanceTestSuite {
 }
 ```
 
-These advanced features provide granular control over SDK behavior, specific optimizations for different use case scenarios, and sophisticated tools for debugging and testing.
+These advanced features provide granular control over library behavior, comprehensive event interception capabilities, intelligent rules-based processing, and sophisticated tools for monitoring, debugging, and optimizing Flutter applications.
+
+## Key Benefits
+
+- **Rules Engine**: Dynamic event processing without app updates
+- **Comprehensive Interception**: UI, lifecycle, navigation, console, crash, and HTTP events
+- **Real-time Processing**: Immediate event evaluation and action execution
+- **Advanced Analytics**: Performance monitoring and business intelligence
+- **Security & Privacy**: Configurable data filtering and protection
+- **Developer Tools**: Debug interfaces and testing capabilities
+
+## Support
+
+For questions about advanced features:
+
+- 📧 Email: [help@obsly.io](mailto:help@obsly.io)
+- 📖 Documentation: [Complete docs](./)

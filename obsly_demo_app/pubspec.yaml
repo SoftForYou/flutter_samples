@@ -30,8 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Obsly SDK from pub.dev
-  obsly_flutter: ^0.2.0
+  # Obsly SDK from pub.dev - Latest version
+  obsly_flutter: ^1.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

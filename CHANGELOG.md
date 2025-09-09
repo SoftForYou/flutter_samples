@@ -164,7 +164,7 @@ This is the inaugural release of the Obsly Flutter Examples repository, providin
 #### 🔗 Related Resources
 
 - [Obsly Flutter SDK on pub.dev](https://pub.dev/packages/obsly_flutter)
-- [Official Obsly Documentation](https://docs.obsly.com/flutter)
+- [Official Obsly Documentation](./doc/)
 - [Community Discord](https://discord.gg/obsly)
 
 #### 🤝 Contributing
@@ -197,7 +197,7 @@ When new versions of the Obsly Flutter SDK are released, we'll provide upgrade g
 
 ## Support and Feedback
 
-- 📖 [Documentation](https://docs.obsly.com/flutter)
+- 📖 [Documentation](./doc/)
 - 💬 [Community Discord](https://discord.gg/obsly)
 - 🐛 [Report Issues](https://github.com/SoftForYou/flutter_samples/issues)
 - 📧 [Email Support](mailto:support@obsly.com)

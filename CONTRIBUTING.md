@@ -1,6 +1,24 @@
-# Contributing to Obsly Flutter Examples
+# 🤝 Contributing to Obsly Flutter Examples
 
-Thank you for your interest in contributing to the Obsly Flutter Examples repository! This document provides guidelines and information for contributors.
+<div align="center">
+
+**Professional Flutter Examples by [Obsly.io](https://obsly.io)**
+
+*Thank you for helping us build better Flutter examples for the community!*
+
+[![Made with Flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg?logo=flutter)](https://flutter.dev/)
+[![Powered by Obsly](https://img.shields.io/badge/Powered%20by-Obsly.io-6366f1.svg)](https://obsly.io)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+</div>
+
+---
+
+## 🚀 Quick Contribution Guide
+
+1. **🍴 Fork** → **🔧 Code** → **🧪 Test** → **📝 Document** → **🔄 PR**
+2. Email us at [help@obsly.io](mailto:help@obsly.io) for assistance
+3. Check out [good first issues](https://github.com/SoftForYou/flutter_samples/labels/good%20first%20issue)
 
 ## 📋 Table of Contents
 
@@ -523,10 +541,9 @@ Contributors will be recognized through:
 
 Need help contributing?
 
-- 💬 **Discord**: [Join our community](https://discord.gg/obsly)
-- 📧 **Email**: contributors@obsly.com
+- 📧 **Email**: help@obsly.io
 - 🐛 **Issues**: Create a GitHub issue with the `question` label
-- 📖 **Docs**: Check our comprehensive documentation
+- 📖 **Docs**: Check our comprehensive documentation in the [doc/](./doc/) folder
 
 ## 📄 License
 

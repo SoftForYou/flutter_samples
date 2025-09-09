@@ -538,7 +538,7 @@ try {
 ## 📞 Support
 
 For additional help:
-- 📖 [Documentation](https://docs.obsly.com/flutter)
+- 📖 [Documentation](./doc/)
 - 🐛 [Report Issues](https://github.com/SoftForYou/flutter_samples/issues)
 - 💬 [Community Support](https://discord.gg/obsly)
 

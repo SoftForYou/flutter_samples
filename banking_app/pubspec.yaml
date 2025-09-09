@@ -34,8 +34,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
 
-  # Obsly SDK from pub.dev
-  obsly_flutter: ^0.2.0
+  # Obsly SDK from pub.dev - Latest version
+  obsly_flutter: ^1.0.1
 
   # Obsly Rules Engine local dependency
 
