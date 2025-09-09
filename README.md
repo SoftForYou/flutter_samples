@@ -95,7 +95,7 @@ A clean, minimal example perfect for understanding core SDK concepts:
 
 ```yaml
 dependencies:
-  obsly_flutter: ^0.2.0  # Latest version
+  obsly_flutter: ^1.0.1  # Latest version
 ```
 
 ### Step 2: Get Your API Key

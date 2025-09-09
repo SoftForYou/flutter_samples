@@ -1254,7 +1254,7 @@ class SecurityManager {
       SecurityInterceptor(
         onRequest: (request) {
           // Add security headers
-          request.headers['X-SDK-Version'] = '0.2.0';
+          request.headers['X-SDK-Version'] = '1.0.1';
           request.headers['X-Client-Type'] = 'flutter';
 
           // Sign request if necessary

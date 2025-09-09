@@ -38,7 +38,7 @@ Add `obsly_flutter` to your `pubspec.yaml`:
 dependencies:
   flutter:
     sdk: flutter
-  obsly_flutter: ^0.2.0
+  obsly_flutter: ^1.0.1
 ```
 
 ### 2. Install Dependencies

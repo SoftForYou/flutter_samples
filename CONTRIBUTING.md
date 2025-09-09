@@ -496,7 +496,7 @@ If applicable, add screenshots.
 **Environment:**
 - OS: [e.g. iOS 15, Android 12]
 - Flutter version: [e.g. 3.4.0]
-- Obsly SDK version: [e.g. 0.2.0]
+- Obsly SDK version: [e.g. 1.0.1]
 - Device: [e.g. iPhone 12, Pixel 6]
 
 **Additional context**

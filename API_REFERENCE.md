@@ -1,6 +1,6 @@
 # Obsly Flutter SDK - API Reference
 
-Complete API reference for the Obsly Flutter SDK version 0.2.0. This guide covers all public APIs, configuration options, and integration patterns.
+Complete API reference for the Obsly Flutter SDK version 1.0.1. This guide covers all public APIs, configuration options, and integration patterns.
 
 ## 📚 Table of Contents
 
@@ -21,7 +21,7 @@ Add the SDK to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  obsly_flutter: ^0.2.0
+  obsly_flutter: ^1.0.1
 ```
 
 Import in your Dart files:
@@ -542,4 +542,4 @@ For additional help:
 - 🐛 [Report Issues](https://github.com/SoftForYou/flutter_samples/issues)
 - 💬 [Community Support](https://discord.gg/obsly)
 
-**Version**: 0.2.0 | **Last Updated**: December 2024
+**Version**: 1.0.1 | **Last Updated**: December 2024
