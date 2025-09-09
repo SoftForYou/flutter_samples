@@ -63,10 +63,9 @@ void main() async {
 
 ### Step 3: Get Your API Key
 
-1. Visit [Obsly Dashboard](https://app.obsly.com)
-2. Create an account or sign in
-3. Create a new project
-4. Copy your API key from project settings
+1. Contact [help@obsly.io](mailto:help@obsly.io) for access
+2. Get your API key and instance URL
+3. Review integration documentation
 
 ## 🔧 Detailed Integration
 

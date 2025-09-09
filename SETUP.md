@@ -58,11 +58,10 @@ cd flutter_samples
 
 ### 2. Get Your Obsly API Key 🔑
 
-**30-second setup**:
-1. 🌐 Visit [app.obsly.com](https://app.obsly.com)
-2. ✅ Sign up (free account)
-3. ⚙️ Go to project settings
-4. 📋 Copy your API key
+**Get API Key**:
+1. 📧 Contact [help@obsly.io](mailto:help@obsly.io) for access
+2. ✅ Receive your API key and instance URL
+3. 📋 Keep your credentials secure
 
 > **Pro tip**: Keep this tab open - you'll need the key in the next step!
 

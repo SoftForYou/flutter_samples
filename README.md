@@ -100,7 +100,7 @@ dependencies:
 
 ### Step 2: Get Your API Key
 
-🔑 **Get started in 30 seconds**: [Sign up at Obsly Dashboard](https://app.obsly.io) → Copy your API key
+🔑 **Get your API key**: Contact us at [help@obsly.io](mailto:help@obsly.io) to get your API key and access
 
 ### Step 3: Initialize & Go
 

@@ -23,10 +23,9 @@
 
 ### Obsly Account
 
-1. Register at [Obsly Platform](https://obsly.tech)
-2. Create a project
-3. Get API Key
-4. Configure Instance URL
+1. Contact us at [help@obsly.io](mailto:help@obsly.io) for access
+2. Get your API key and instance URL
+3. Review documentation and integration examples
 
 ## Installation
 
@@ -1177,6 +1176,6 @@ After completing basic integration:
 2. 🔧 Explore [Advanced Features](advanced-features.md)
 3. 🐛 Configure [Debug Tools](debug-tools.md) for development
 4. 📈 Implement specific business metrics
-5. 🎯 Configure alerts in Obsly dashboard
+5. 🎯 Configure alerts and monitoring (contact help@obsly.io for guidance)
 
 Your Obsly Flutter SDK integration is complete! 🎉
