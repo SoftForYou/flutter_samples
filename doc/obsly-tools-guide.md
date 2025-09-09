@@ -134,63 +134,6 @@ The Obsly Tools debug interface overlays the banking application, providing real
 
 > **📤 CRITICAL**: With debug tools enabled (`enableDebugTools: true`), **automatic sending is DISABLED**. To see events in the Obsly platform, **you MUST click the blue "Send" button (📤)** in the active session.
 
-### UI Screenshot Capture
-
-<img src="../screenshots/banking_app_obsly_tools_ui_screenshot.png" width="400" alt="UI Screenshot Feature">
-
-Advanced screenshot capture functionality demonstrates automatic UI documentation:
-
-#### Screenshot Metadata
-- **Touch Point Tracking**: Precise coordinate capture (26,20|942x676)
-- **Screenshot Size**: 26650 characters for comprehensive capture
-- **Export Options**: 
-  - **Hide**: Conceal screenshot for privacy
-  - **Copy Base64**: Export screenshot data for analysis
-
-#### Banking Interface Screenshot
-The captured screenshot shows:
-- **Application State**: Dashboard view with navigation completed
-- **UI Elements**: All interface components preserved in screenshot
-- **User Interactions**: Visual record of user tap locations
-- **Screen Context**: Complete application state at interaction moment
-
-#### Development Applications
-- **Bug Reproduction**: Visual evidence of issues and user flows
-- **UI Testing**: Automated screenshot comparison for regression testing
-- **User Experience Analysis**: Visual user journey documentation
-- **Support Documentation**: Automated creation of help materials
-
-### Anonymized Data Protection
-
-<img src="../screenshots/banking_app_obsly_tools_ui_anonymized.png" width="400" alt="Data Anonymization in Action">
-
-Comprehensive data anonymization ensuring financial privacy compliance:
-
-#### Anonymization in Practice
-The screenshot demonstrates banking-specific privacy protection:
-- **Financial Data**: Account balances and numbers automatically anonymized
-- **Personal Information**: User names and identifiers protected
-- **Transaction Details**: Sensitive transaction data filtered
-- **Navigation Paths**: Screen transitions captured without exposing data
-
-#### UI Interaction Event
-- **Action Type**: `tap` interaction captured
-- **Element Target**: `backbutton` navigation element
-- **View Context**: `Back` button interaction on account details screen
-- **Screenshot Protection**: Visual elements appropriately anonymized
-
-#### Anonymization Features
-- **Automatic PII Filtering**: Real-time sensitive data detection and masking
-- **Banking Compliance**: Pre-configured rules for financial data protection
-- **Custom Filter Rules**: Configurable anonymization patterns
-- **Visual Anonymization**: Screenshot-level privacy protection
-
-#### Regulatory Compliance
-- **GDPR Ready**: European privacy regulation compliance
-- **PCI DSS**: Payment card industry data security standards
-- **SOX Compliance**: Financial reporting and audit trail requirements
-- **Custom Regulations**: Adaptable for regional banking requirements
-
 ## Events Tab
 
 ### Overview
@@ -306,7 +249,62 @@ Lifecycle:
 - View: home
 ```
 
+### UI Screenshot Capture (In UI Events)
 
+<img src="../screenshots/banking_app_obsly_tools_ui_screenshot.png" width="400" alt="UI Screenshot Feature">
+
+Advanced screenshot capture functionality demonstrates automatic UI documentation:
+
+#### Screenshot Metadata
+- **Touch Point Tracking**: Precise coordinate capture (26,20|942x676)
+- **Screenshot Size**: 26650 characters for comprehensive capture
+- **Export Options**: 
+  - **Hide**: Conceal screenshot for privacy
+  - **Copy Base64**: Export screenshot data for analysis
+
+#### Banking Interface Screenshot
+The captured screenshot shows:
+- **Application State**: Dashboard view with navigation completed
+- **UI Elements**: All interface components preserved in screenshot
+- **User Interactions**: Visual record of user tap locations
+- **Screen Context**: Complete application state at interaction moment
+
+#### Development Applications
+- **Bug Reproduction**: Visual evidence of issues and user flows
+- **UI Testing**: Automated screenshot comparison for regression testing
+- **User Experience Analysis**: Visual user journey documentation
+- **Support Documentation**: Automated creation of help materials
+
+#### Anonymized Data Protection
+
+<img src="../screenshots/banking_app_obsly_tools_ui_anonymized.png" width="400" alt="Data Anonymization in Action">
+
+Comprehensive data anonymization ensuring financial privacy compliance:
+
+##### Anonymization in Practice
+The screenshot demonstrates banking-specific privacy protection:
+- **Financial Data**: Account balances and numbers automatically anonymized
+- **Personal Information**: User names and identifiers protected
+- **Transaction Details**: Sensitive transaction data filtered
+- **Navigation Paths**: Screen transitions captured without exposing data
+
+##### UI Interaction Event
+- **Action Type**: `tap` interaction captured
+- **Element Target**: `backbutton` navigation element
+- **View Context**: `Back` button interaction on account details screen
+- **Screenshot Protection**: Visual elements appropriately anonymized
+
+##### Anonymization Features
+- **Automatic PII Filtering**: Real-time sensitive data detection and masking
+- **Banking Compliance**: Pre-configured rules for financial data protection
+- **Custom Filter Rules**: Configurable anonymization patterns
+- **Visual Anonymization**: Screenshot-level privacy protection
+
+##### Regulatory Compliance
+- **GDPR Ready**: European privacy regulation compliance
+- **PCI DSS**: Payment card industry data security standards
+- **SOX Compliance**: Financial reporting and audit trail requirements
+- **Custom Regulations**: Adaptable for regional banking requirements
 
 ### Event Filtering and Search
 
