@@ -266,7 +266,9 @@ See detailed screenshots and implementation guide in the **[Obsly Tools Guide](.
 - 🛡️ **Data Anonymization**: PII filtering and regulatory compliance features
 - 🛠️ **Debug Interface**: Real-time event monitoring and SDK configuration
 
-> **📤 IMPORTANTE**: Para ver los eventos en la plataforma Obsly cuando tienes las herramientas de debug activadas, **debes pulsar el botón azul "Send" (📤)** en la pestaña Events del debug overlay. Con debug tools habilitado, el envío automático está desactivado por defecto.
+
+
+> **📤 CRITICAL**: To see events in the Obsly platform when debug tools are enabled, **you MUST click the blue "Send" button ** in the Events tab of the debug overlay. With debug tools enabled, automatic sending is disabled by default.
 
 ## 🤝 Contributing
 

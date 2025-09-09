@@ -132,7 +132,7 @@ The Obsly Tools debug interface overlays the banking application, providing real
 - **Export Controls**: Blue send and red delete buttons for session management
 - **Event Filtering**: Real-time event inspection and debugging
 
-> **📤 CRÍTICO**: Con debug tools activado (`enableDebugTools: true`), **el envío automático está DESACTIVADO**. Para ver eventos en la plataforma Obsly, **DEBES pulsar el botón azul "Send" (📤)** en la sesión activa.
+> **📤 CRITICAL**: With debug tools enabled (`enableDebugTools: true`), **automatic sending is DISABLED**. To see events in the Obsly platform, **you MUST click the blue "Send" button (📤)** in the active session.
 
 ### UI Screenshot Capture
 
@@ -331,11 +331,11 @@ Advanced session management features:
 - **All/None Selection**: Quick filter controls
 
 #### Session Controls
-- **Export Session**: Send session data - **¡NECESARIO para ver eventos en la plataforma!**
+- **Export Session**: Send session data - **REQUIRED to see events in platform!**
 - **Delete Session**: Clear session events
 - **Session Expansion**: View/hide session details
 
-> **⚠️ NOTA IMPORTANTE**: En modo debug, los eventos se capturan pero NO se envían automáticamente. Usa el botón "Send" para transmitir eventos a la plataforma Obsly.
+> **⚠️ IMPORTANT NOTE**: In debug mode, events are captured but NOT sent automatically. Use the "Send" button to transmit events to the Obsly platform.
 
 ## Rules Tab
 

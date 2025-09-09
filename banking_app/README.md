@@ -40,7 +40,7 @@ A comprehensive banking application demonstrating enterprise-level integration o
    - Navigate through banking features
    - Open debug panel (floating action button)
    - Monitor events in real-time
-   - **🚨 IMPORTANTE**: Pulsa el botón azul "Send" (📤) en Obsly Tools para enviar eventos a la plataforma
+   - **🚨 CRITICAL**: Click the blue "Send" button (📤) in Obsly Tools to send events to the platform
 
 ## 📱 App Architecture
 
@@ -161,7 +161,7 @@ try {
 
 > **📸 See Visual Examples**: Complete screenshots and detailed explanations in the **[Obsly Tools Guide - Banking App Implementation](../doc/obsly-tools-guide.md#banking-app-implementation)**
 
-> **📤 CRÍTICO - Envío de Eventos**: Cuando usas las herramientas de debug (`enableDebugTools: true`), **el envío automático de eventos está DESACTIVADO**. Para ver los eventos en la plataforma Obsly, **DEBES pulsar el botón azul "Send" (📤)** en la pestaña Events del debug overlay, o llamar `ObslySDK.instance.forceFlush()` programáticamente.
+> **📤 CRITICAL - Event Sending**: When using debug tools (`enableDebugTools: true`), **automatic event sending is DISABLED**. To see events in the Obsly platform, **you MUST click the blue "Send" button (📤)** in the Events tab of the debug overlay, or call `ObslySDK.instance.forceFlush()` programmatically.
 
 ### Real-time Event Viewer
 
