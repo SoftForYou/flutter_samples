@@ -40,6 +40,7 @@ A comprehensive banking application demonstrating enterprise-level integration o
    - Navigate through banking features
    - Open debug panel (floating action button)
    - Monitor events in real-time
+   - **🚨 IMPORTANTE**: Pulsa el botón azul "Send" (📤) en Obsly Tools para enviar eventos a la plataforma
 
 ## 📱 App Architecture
 
@@ -158,6 +159,10 @@ try {
 
 ## 🎨 Debug Features
 
+> **📸 See Visual Examples**: Complete screenshots and detailed explanations in the **[Obsly Tools Guide - Banking App Implementation](../doc/obsly-tools-guide.md#banking-app-implementation)**
+
+> **📤 CRÍTICO - Envío de Eventos**: Cuando usas las herramientas de debug (`enableDebugTools: true`), **el envío automático de eventos está DESACTIVADO**. Para ver los eventos en la plataforma Obsly, **DEBES pulsar el botón azul "Send" (📤)** en la pestaña Events del debug overlay, o llamar `ObslySDK.instance.forceFlush()` programáticamente.
+
 ### Real-time Event Viewer
 
 - View all tracked events in real-time
@@ -233,6 +238,7 @@ flutter test --coverage
 ## 🔗 Related Resources
 
 - [Obsly Flutter SDK Documentation](../doc/)
+- **[Obsly Tools Guide - Banking App Implementation](../doc/obsly-tools-guide.md#banking-app-implementation)** - Complete visual guide with screenshots
 - [Banking App Architecture Guide](docs/architecture.md)
 - [Security Best Practices](docs/security.md)
 - [Performance Optimization](docs/performance.md)

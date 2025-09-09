@@ -35,13 +35,14 @@ void main() async {
     // Framework-agnostic initialization - works with any Flutter architecture
     await ObslySDK.instance.init(
       InitParameters(
-        obslyKey: 'YOUR_OBSLY_API_KEY_HERE', // Replace with your actual Obsly API key
+        obslyKey:
+            'YOUR_OBSLY_API_KEY_HERE', // Replace with your actual Obsly API key
         instanceURL: 'https://api.int.obsly.io',
         debugMode: true,
         logLevel: LogLevel.debug,
         config: ObslyConfig(
           enableDebugTools: true,
-          enableScreenshotOnUi: false,
+          enableScreenshotOnUi: true,
           enableLifeCycleLog: true, // Enhanced navigation tracking
           automaticViewDetection: true, // Framework-agnostic view detection
           rageClick: const RageClickConfig(
@@ -268,9 +269,10 @@ class MyApp extends StatelessWidget {
               appBarTheme: AppBarTheme(
                 elevation: 0,
                 centerTitle: false,
-                titleTextStyle: GoogleFonts.poppinsTextTheme().titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                titleTextStyle:
+                    GoogleFonts.poppinsTextTheme().titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
               ),
             ),
             darkTheme: ThemeData(
@@ -307,7 +309,8 @@ class MyApp extends StatelessWidget {
             routes: {
               '/': (context) => const PublicRoute(child: LoginScreen()),
               '/login': (context) => const PublicRoute(child: LoginScreen()),
-              '/dashboard': (context) => const ProtectedRoute(child: DashboardScreen()),
+              '/dashboard': (context) =>
+                  const ProtectedRoute(child: DashboardScreen()),
             },
             onGenerateRoute: _generateRoute,
             onUnknownRoute: _unknownRoute,

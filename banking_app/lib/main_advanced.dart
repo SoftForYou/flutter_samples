@@ -46,7 +46,8 @@ ObslyConfig _getObslyConfig() {
     return ObslyDeveloperConfig.testing;
   } else {
     // Release build - production configuration
-    ObslyLogger.log('🏭 Release build detected, using production configuration');
+    ObslyLogger.log(
+        '🏭 Release build detected, using production configuration');
     return ObslyDeveloperConfig.production;
   }
 }
@@ -59,17 +60,21 @@ Future<void> _initializeRulesEngine() async {
     ObslyLogger.verbose('📦 Attempting to initialize RulesController...');
     final rulesController = await RulesController.initialize();
 
-    ObslyLogger.log('🎯 RulesController created: ${rulesController.runtimeType}');
-    ObslyLogger.verbose('🔍 Rules engine isActive: ${rulesController.isActive}');
+    ObslyLogger.log(
+        '🎯 RulesController created: ${rulesController.runtimeType}');
+    ObslyLogger.verbose(
+        '🔍 Rules engine isActive: ${rulesController.isActive}');
 
     // Register the controller with the SDK
     ObslyLogger.verbose('🔗 Registering rules controller with SDK...');
     RulesIntegration.registerRulesController(rulesController);
 
-    ObslyLogger.log('✅ Rules engine initialized successfully: ${rulesController.isActive ? 'ACTIVE' : 'INACTIVE'}');
+    ObslyLogger.log(
+        '✅ Rules engine initialized successfully: ${rulesController.isActive ? 'ACTIVE' : 'INACTIVE'}');
 
     // Verify state after registration
-    ObslyLogger.verbose('🔍 RulesIntegration isAvailable after registration: ${RulesIntegration.instance.isAvailable}');
+    ObslyLogger.verbose(
+        '🔍 RulesIntegration isAvailable after registration: ${RulesIntegration.instance.isAvailable}');
   } catch (e, stackTrace) {
     ObslyLogger.errorWithContext(
       'RulesEngineInit',
@@ -93,13 +98,14 @@ Future<void> _initializeObslySDK(ObslyConfig config) async {
     // This is a bridge until the SDK is fully updated
     await ObslySDK.instance.init(
       InitParameters(
-        obslyKey: 'YOUR_OBSLY_API_KEY_HERE', // Replace with your actual Obsly API key
+        obslyKey:
+            'YOUR_OBSLY_API_KEY_HERE', // Replace with your actual Obsly API key
         instanceURL: 'https://api.int.obsly.io',
         debugMode: config.enableDebugTools ?? false,
         logLevel: LogLevel.debug,
         config: ObslyConfig(
           enableDebugTools: config.enableDebugTools,
-          enableScreenshotOnUi: false,
+          enableScreenshotOnUi: true,
           captureBodyOnError: config.captureBodyOnError,
           bufferSize: config.bufferSize,
           messengerInterval: config.messengerInterval,

@@ -256,10 +256,17 @@ flutter test -d ios         # iOS Simulator
 - ⏱️ **Precise Timing**: Millisecond-accurate event timestamps
 - 📊 **Professional UI**: Clean debug interface overlay that doesn't interfere with app usage
 
-### Banking App (Screenshots Coming Soon)
+### Banking App - Real-World Implementation
+
+See detailed screenshots and implementation guide in the **[Obsly Tools Guide](./doc/obsly-tools-guide.md#banking-app-implementation)**:
+
 - 🏠 **Dashboard Screen**: Complete banking interface with Obsly monitoring
-- 💳 **Transaction Flow**: End-to-end transaction monitoring with analytics
-- 📊 **Performance Metrics**: Live performance data and monitoring tools
+- 🔐 **Login Flow**: Secure authentication with event tracking and debug tools
+- 📸 **Screenshot Capture**: Automatic UI documentation with privacy protection
+- 🛡️ **Data Anonymization**: PII filtering and regulatory compliance features
+- 🛠️ **Debug Interface**: Real-time event monitoring and SDK configuration
+
+> **📤 IMPORTANTE**: Para ver los eventos en la plataforma Obsly cuando tienes las herramientas de debug activadas, **debes pulsar el botón azul "Send" (📤)** en la pestaña Events del debug overlay. Con debug tools habilitado, el envío automático está desactivado por defecto.
 
 ## 🤝 Contributing
 
@@ -285,6 +292,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | 🏠 **[Obsly.io](https://obsly.io)** | Main platform website |
 | 📦 **[Flutter SDK](https://pub.dev/packages/obsly_flutter)** | Pub.dev package |
 | 📚 **[Documentation](./doc/)** | Complete guides & tutorials |
+| 🛠️ **[Obsly Tools Guide](./doc/obsly-tools-guide.md)** | Debug interface & banking app examples |
 | 🔧 **[API Reference](https://pub.dev/documentation/obsly_flutter/latest/)** | Detailed API docs |
 
 ## 🤝 Support & Community

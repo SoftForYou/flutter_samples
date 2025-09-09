@@ -6,6 +6,7 @@ Complete guide to the Obsly Tools debugging interface, showcasing real-time moni
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
+- [Banking App Implementation](#banking-app-implementation)
 - [Events Tab](#events-tab)
 - [Session Tab](#session-tab)
 - [Rules Tab](#rules-tab)
@@ -47,6 +48,148 @@ The Obsly Tools interface features four main tabs:
 - **Session** - Session information and analytics
 - **Rules** - Rules engine management and testing
 - **Configuration** - Runtime SDK configuration
+
+## Banking App Implementation
+
+This section demonstrates Obsly Tools integration in a real-world banking application, showcasing how the SDK captures user interactions, maintains privacy through anonymization, and provides comprehensive debugging capabilities.
+
+### Banking App Login Screen
+
+<img src="../screenshots/banking_app_login.png" width="400" alt="Banking App Login Screen">
+
+The banking app login screen demonstrates:
+
+#### Professional UI Design
+- **Clean Interface**: Modern material design with rounded input fields
+- **Branding**: "My Bank" header with consistent styling
+- **Authentication Fields**: Email and password input with secure handling
+- **Call-to-Action**: Prominent "Sign In" button for user authentication
+
+#### Obsly Integration Features
+- **Debug Indicator**: Red "DEBUG" badge in top-right corner indicating development mode
+- **Event Capture**: All UI interactions automatically captured for analysis
+- **Privacy Protection**: Sensitive input fields protected through PII filtering
+- **Screen Timing**: Automatic page load timing measurement for performance analysis
+
+#### Development Benefits
+- **Real-time Monitoring**: All login attempts and user interactions tracked
+- **Error Detection**: Failed authentication attempts automatically captured
+- **Performance Metrics**: Login flow timing and optimization insights
+- **Security Auditing**: Comprehensive logging for security compliance
+
+### Banking App Dashboard
+
+<img src="../screenshots/banking_app_dashboard.png" width="400" alt="Banking App Dashboard">
+
+The main dashboard showcases comprehensive financial data with Obsly monitoring:
+
+#### Financial Interface Elements
+- **Welcome Message**: Personalized greeting for "Theuser"
+- **Total Balance**: €45000.00 prominently displayed with proper formatting
+- **Account Overview**: Three account types with masked account numbers:
+  - **Checking Account**: ****1234 - EUR 5000.00
+  - **Savings Account**: ****5678 - EUR 15000.00  
+  - **Investment Account**: ****9876 - EUR 25000.00
+
+#### Quick Actions Section
+Four primary banking functions with intuitive icons:
+- **Transfer**: Blue arrow icon for money transfers
+- **Pay Bills**: Orange card icon for bill payments
+- **Piggy Banks**: Green piggy bank icon for savings goals
+- **More**: Gray dots icon for additional features
+
+#### Credit Cards Display
+- **Visa Card**: Blue gradient card design
+- **Mastercard**: Partially visible second card option
+
+#### Privacy and Security Features
+- **Data Anonymization**: Account numbers automatically masked (****)
+- **PII Protection**: Sensitive financial data protected from capture
+- **Secure Monitoring**: Transaction monitoring without exposing sensitive details
+- **Compliance Ready**: Built-in privacy controls for financial regulation compliance
+
+### Obsly Tools Debug Interface
+
+<img src="../screenshots/banking_app_obsly_tools.png" width="400" alt="Obsly Tools Interface in Banking App">
+
+The Obsly Tools debug interface overlays the banking application, providing real-time development insights:
+
+#### Event Monitoring Display
+- **Current Session**: Session ID `a141e111...` with 35 captured events
+- **Event Timeline**: Real-time event capture with precise timestamps
+- **Event Types**: Mixed UI interactions, lifecycle events, and metrics
+
+#### Banking-Specific Event Capture
+- **UI Interactions**: `tap • Back`, `tap • account_tap_*` for account selections
+- **Navigation Events**: `/dashboard → /account-details` route transitions
+- **Performance Metrics**: 
+  - `operation_duration • count: 1 • 1172ms` - Operation timing
+  - `PageLoadComplete • count: 1 • 89ms` - Page load performance
+- **Lifecycle Tracking**: App foreground/background state changes
+
+#### Session Management
+- **Active Session**: Current session with expandable event list
+- **Export Controls**: Blue send and red delete buttons for session management
+- **Event Filtering**: Real-time event inspection and debugging
+
+> **📤 CRÍTICO**: Con debug tools activado (`enableDebugTools: true`), **el envío automático está DESACTIVADO**. Para ver eventos en la plataforma Obsly, **DEBES pulsar el botón azul "Send" (📤)** en la sesión activa.
+
+### UI Screenshot Capture
+
+<img src="../screenshots/banking_app_obsly_tools_ui_screenshot.png" width="400" alt="UI Screenshot Feature">
+
+Advanced screenshot capture functionality demonstrates automatic UI documentation:
+
+#### Screenshot Metadata
+- **Touch Point Tracking**: Precise coordinate capture (26,20|942x676)
+- **Screenshot Size**: 26650 characters for comprehensive capture
+- **Export Options**: 
+  - **Hide**: Conceal screenshot for privacy
+  - **Copy Base64**: Export screenshot data for analysis
+
+#### Banking Interface Screenshot
+The captured screenshot shows:
+- **Application State**: Dashboard view with navigation completed
+- **UI Elements**: All interface components preserved in screenshot
+- **User Interactions**: Visual record of user tap locations
+- **Screen Context**: Complete application state at interaction moment
+
+#### Development Applications
+- **Bug Reproduction**: Visual evidence of issues and user flows
+- **UI Testing**: Automated screenshot comparison for regression testing
+- **User Experience Analysis**: Visual user journey documentation
+- **Support Documentation**: Automated creation of help materials
+
+### Anonymized Data Protection
+
+<img src="../screenshots/banking_app_obsly_tools_ui_anonymized.png" width="400" alt="Data Anonymization in Action">
+
+Comprehensive data anonymization ensuring financial privacy compliance:
+
+#### Anonymization in Practice
+The screenshot demonstrates banking-specific privacy protection:
+- **Financial Data**: Account balances and numbers automatically anonymized
+- **Personal Information**: User names and identifiers protected
+- **Transaction Details**: Sensitive transaction data filtered
+- **Navigation Paths**: Screen transitions captured without exposing data
+
+#### UI Interaction Event
+- **Action Type**: `tap` interaction captured
+- **Element Target**: `backbutton` navigation element
+- **View Context**: `Back` button interaction on account details screen
+- **Screenshot Protection**: Visual elements appropriately anonymized
+
+#### Anonymization Features
+- **Automatic PII Filtering**: Real-time sensitive data detection and masking
+- **Banking Compliance**: Pre-configured rules for financial data protection
+- **Custom Filter Rules**: Configurable anonymization patterns
+- **Visual Anonymization**: Screenshot-level privacy protection
+
+#### Regulatory Compliance
+- **GDPR Ready**: European privacy regulation compliance
+- **PCI DSS**: Payment card industry data security standards
+- **SOX Compliance**: Financial reporting and audit trail requirements
+- **Custom Regulations**: Adaptable for regional banking requirements
 
 ## Events Tab
 
@@ -188,9 +331,11 @@ Advanced session management features:
 - **All/None Selection**: Quick filter controls
 
 #### Session Controls
-- **Export Session**: Send session data
+- **Export Session**: Send session data - **¡NECESARIO para ver eventos en la plataforma!**
 - **Delete Session**: Clear session events
 - **Session Expansion**: View/hide session details
+
+> **⚠️ NOTA IMPORTANTE**: En modo debug, los eventos se capturan pero NO se envían automáticamente. Usa el botón "Send" para transmitir eventos a la plataforma Obsly.
 
 ## Rules Tab
 
