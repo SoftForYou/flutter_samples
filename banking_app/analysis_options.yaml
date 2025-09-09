@@ -1,0 +1,22 @@
+include: ../../obsly_flutter/analysis_options.yaml
+
+# Banking app example specific overrides
+# This is a demo/example application, so prints are acceptable for demonstration
+analyzer:
+  errors:
+    # Allow print statements in example banking app
+    avoid_print: ignore
+
+linter:
+  rules:
+    # Override production rules for example app
+    avoid_print: false  # Allow print statements in examples
+    # Allow more relaxed rules in example applications
+    prefer_const_constructors: false
+    prefer_const_literals_to_create_immutables: false
+    avoid_redundant_argument_values: false
+    lines_longer_than_80_chars: false
+    library_private_types_in_public_api: false
+    # Allow debugging patterns in examples
+    avoid_function_literals_in_foreach_calls: false
+    prefer_function_declarations_over_variables: false

@@ -1,0 +1,34 @@
+{
+  "key": "login_button_click",
+  "name": "Detect Login Button Click",
+  "classification": "ui",
+  "definition": {
+    "trigger": {
+      "eventType": "ui",
+      "conditions": {
+        "elementId": "login_button",
+        "action": "click"
+      }
+    },
+    "actions": [
+      {
+        "type": "tag",
+        "category": "user_interaction", 
+        "key": "login_button_clicked",
+        "value": "true"
+      },
+      {
+        "type": "variable",
+        "scope": "session",
+        "name": "last_login_attempt",
+        "value": "{{timestamp}}"
+      },
+      {
+        "type": "variable",
+        "scope": "session", 
+        "name": "login_screen_interaction",
+        "value": "button_clicked"
+      }
+    ]
+  }
+}

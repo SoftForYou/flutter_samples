@@ -1,0 +1,163 @@
+# create a .gitignore file for flutter project
+
+# Archivos generados por Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+.dart_tool/
+.idea/
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+*.iml
+*.class
+*.log
+*.pyc
+*.swp
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# Archivos de IntelliJ
+*.ipr
+*.iws
+.idea/
+
+# Archivos de Visual Studio Code
+.vscode/
+.classpath
+.project
+.settings/
+
+# Archivos de Flutter
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+.dart_tool/
+
+# Archivos de Android
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+**/android/**/*.apk
+**/android/**/*.aab
+**/android/**/*.so
+**/android/**/*.dex
+
+# Archivos de iOS
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/**/*.ipa
+**/ios/**/*.app
+**/ios/**/*.dSYM.zip
+**/ios/**/*.dSYM
+
+# Archivos de macOS
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/ephemeral
+**/macos/**/*.app
+**/macos/**/*.dSYM.zip
+**/macos/**/*.dSYM
+
+# Archivos de cobertura
+coverage/
+*.lcov
+
+# Archivos de símbolos
+app.*.symbols
+
+# Archivos de obfuscación
+app.*.map.json
+
+# Excepciones de Android Studio
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Archivos de XCode Build Data
+**/ios/XCBuildData/
+
+# Archivos de Linux
+**/linux/flutter/generated_plugin_registrant.cc
+**/linux/flutter/generated_plugin_registrant.h
+**/linux/flutter/generated_plugins.cmake
+**/linux/**/*.so
+**/linux/**/*.o
+**/linux/build/
+
+# Archivos de Windows
+**/windows/flutter/generated_plugin_registrant.cc
+**/windows/flutter/generated_plugin_registrant.h
+**/windows/flutter/generated_plugins.cmake
+**/windows/**/*.dll
+**/windows/**/*.exe
+**/windows/**/*.pdb
+**/windows/**/*.lib
+**/windows/**/*.exp
+**/windows/**/*.ilk
+**/windows/build/
+**/windows/**/Debug/
+**/windows/**/Release/
+**/windows/**/Profile/
+
+# Archivos de Chrome/Web
+**/chrome-device/
+**/web/favicon.png
+**/web/icons/
+**/web/manifest.json
+
+# Archivos grandes y recursos
+**/*.png
+
+# Exception: Track app icons
+!**/AppIcon.appiconset/*.png
+!**/mipmap-*/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.ico
+**/*.ttf
+**/*.otf
+**/*.woff
+**/*.woff2
+**/*.eot
