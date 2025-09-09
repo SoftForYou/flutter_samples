@@ -238,27 +238,28 @@ flutter test -d ios         # iOS Simulator
 
 ## 📸 Screenshots
 
-> **📷 Screenshots Coming Soon**: We're preparing screenshots of both example applications to showcase the Obsly Flutter library integration in action.
+### Demo App - Obsly Integration in Action
 
-### Banking App Features Preview
+<img src="screenshots/obsly_demo_main_screen.png" width="300" alt="Demo Store Main Screen">
+
+**Demo Store Interface**: Clean e-commerce application showing the main product catalog with clothing, electronics, and household items. This demonstrates a typical Flutter app that benefits from Obsly's automatic event tracking.
+
+<img src="screenshots/obsly_demo_obsly_tools.png" width="300" alt="Obsly Tools Debug Interface">
+
+**Obsly Tools Debug Interface**: Real-time debugging overlay showing automatic lifecycle event capture. Notice how the SDK automatically tracks app state changes like `foreground`, `background`, and `appear` events with precise timestamps - all without any manual coding required.
+
+### Key Integration Features Shown:
+- 🛍️ **Product Catalog**: E-commerce interface with automatic event tracking
+- 🔧 **Debug Tools**: Real-time event viewer showing captured lifecycle events  
+- 📱 **Session Management**: Active session tracking with event count (7 events shown)
+- 🎯 **Automatic Monitoring**: Background lifecycle tracking without manual intervention
+- ⏱️ **Precise Timing**: Millisecond-accurate event timestamps
+- 📊 **Professional UI**: Clean debug interface overlay that doesn't interfere with app usage
+
+### Banking App (Screenshots Coming Soon)
 - 🏠 **Dashboard Screen**: Complete banking interface with Obsly monitoring
-- 🔧 **Debug Tools**: Real-time event viewer and SDK configuration interface
 - 💳 **Transaction Flow**: End-to-end transaction monitoring with analytics
 - 📊 **Performance Metrics**: Live performance data and monitoring tools
-
-### Demo App Features Preview  
-- 🛍️ **Product Catalog**: E-commerce interface with automatic event tracking
-- 🛒 **Shopping Cart**: Complete shopping flow with Obsly integration
-- 📱 **Navigation Tracking**: Automatic screen transition monitoring
-- 🎯 **User Interactions**: Button clicks and gesture tracking demonstrations
-
-**Screenshots to be added:**
-- `screenshots/banking_app_home.png` - Banking app main dashboard
-- `screenshots/banking_app_debug.png` - Debug tools interface
-- `screenshots/banking_app_transactions.png` - Transaction flow
-- `screenshots/demo_app_main.png` - Demo app home screen
-- `screenshots/demo_app_cart.png` - Shopping cart interface
-- `screenshots/demo_app_debug.png` - Event tracking in action
 
 ## 🤝 Contributing
 
